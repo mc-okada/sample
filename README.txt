@@ -1,4 +1,7 @@
-ここに何か具体的なwebappを作ってみるよ！
+* このプロジェクトの使い方
+- apacheのdocument_rootに一式をダウンロードするなりcloneするなりする
+- documentroot/sample/ の配下に、cache/twigディレクトリを作る（ここにTwigのコンパイル済みテンプレートが配置される）
+- documentroot/sample/twig/test.php にアクセスするとsample/sample/twig/templates/test.htmlを処理した結果が表示されるはず
 
 - composer.phar
 http://getcomposer.org/
@@ -10,4 +13,3 @@ curlが入っていなかったら上のURLからダウンロードしてきて�
 
 使い方は、composer.jsonでインストールしたいライブラリを記述して
 php composer.phar install
-
