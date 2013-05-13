@@ -13,3 +13,5 @@ curlが入っていなかったら上のURLからダウンロードしてきて�
 
 使い方は、composer.jsonでインストールしたいライブラリを記述して
 php composer.phar install
+
+ですって
