@@ -15,3 +15,5 @@ curlが入っていなかったら上のURLからダウンロードしてきて�
 php composer.phar install
 
 ですって
+
+ついでに依存関係も解消してくれるらしい。。
