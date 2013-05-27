@@ -8,3 +8,10 @@ http://propelorm.org/documentation/09-inheritance.html
   - bookstoreデータベース内のテーブルを作る
  $ php test.php
   - test.phpを実行してみる
+
+test1.php
+ - Using Inherited Objects のサンプル
+test2.php
+ - Class Table Inheritance のサンプル
+test3.php
+ - Concrete Table Inheritance のサンプル

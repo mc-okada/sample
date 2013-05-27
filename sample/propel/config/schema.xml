@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database name="bookstore" defaultIdMethod="native">
+  <!-- Using Inherited Objects tables -->
   <table name="book">
 	<column name="id" type="INTEGER" primaryKey="true" autoIncrement="true"/>
 	<column name="title" type="VARCHAR" size="100"/>
@@ -8,5 +9,61 @@
 	  <inheritance key="2" class="Essay" extends="Book"/>
 	  <inheritance key="3" class="Comic" extends="Book"/>
 	</column>
+  </table>
+  <!-- Class Table Inheritance -->
+  <table name="player">
+	<column name="id" type="INTEGER" primaryKey="true" autoIncrement="true"/>
+	<column name="first_name" type="VARCHAR" size="100"/>
+	<column name="last_name" type="VARCHAR" size="100"/>
+  </table>
+  <table name="footballer">
+	<column name="id" required="true" primaryKey="true" autoIncrement="true" type="INTEGER" />
+	<column name="goals_scored" type="INTEGER" />
+	<column name="fouls_committed" type="INTEGER" />
+	<column name="player_id" type="INTEGER" />
+	<foreign-key foreignTable="player">
+	  <reference local="player_id" foreign="id" />
+	</foreign-key>
+	<behavior name="delegate">
+	  <parameter name="to" value="player" />
+	</behavior>
+  </table>
+  <table name="basketballer">
+	<column name="id" required="true" primaryKey="true" autoIncrement="true" type="INTEGER" />
+	<column name="points" type="INTEGER" />
+	<column name="field_goals" type="INTEGER" />
+	<column name="three_points_field_goals" type="INTEGER" />
+	<column name="player_id" type="INTEGER" />
+	<foreign-key foreignTable="player">
+	  <reference local="player_id" foreign="id" />
+	</foreign-key>
+	<behavior name="delegate">
+	  <parameter name="to" value="player" />
+	</behavior>
+  </table>
+  <!-- Concrete Table Inheritance -->
+  <table name="content">
+	<column name="id" type="INTEGER" primaryKey="true" autoIncrement="true"/>
+	<column name="title" type="VARCHAR" size="100"/>
+	<column name="category_id" required="false" type="INTEGER" />
+	<foreign-key foreignTable="category" onDelete="cascade">
+	  <reference local="category_id" foreign="id" />
+	</foreign-key>
+  </table>
+  <table name="category">
+	<column name="id" required="true" primaryKey="true" autoIncrement="true" type="INTEGER" />
+	<column name="name" type="VARCHAR" size="100" primaryString="true" />
+  </table>
+  <table name="article">
+	<behavior name="concrete_inheritance">
+	  <parameter name="extends" value="content" />
+	</behavior>
+	<column name="body" type="VARCHAR" size="100"/>
+  </table>
+  <table name="video">
+	<behavior name="concrete_inheritance">
+	  <parameter name="extends" value="content" />
+	</behavior>
+	<column name="resource_link" type="VARCHAR" size="100"/>
   </table>
 </database>
