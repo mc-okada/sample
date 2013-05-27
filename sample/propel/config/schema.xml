@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="bookstore" defaultIdMethod="native">
+  <table name="book">
+	<column name="id" type="INTEGER" primaryKey="true" autoIncrement="true"/>
+	<column name="title" type="VARCHAR" size="100"/>
+	<column name="class_key" type="INTEGER" inheritance="single">
+	  <inheritance key="1" class="Book"/>
+	  <inheritance key="2" class="Essay" extends="Book"/>
+	  <inheritance key="3" class="Comic" extends="Book"/>
+	</column>
+  </table>
+</database>

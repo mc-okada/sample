@@ -1,0 +1,16 @@
+#!/bin/sh
+
+SCRIPT_DIR=`pwd`
+PROJECT_DIR=`cd ../../ && pwd`
+PROPEL_DIR="${PROJECT_DIR}/vendor/propel/propel1"
+CONFIG_DIR="${SCRIPT_DIR}/config"
+PROPEL_GENERATOR=`cd "${PROPEL_DIR}/generator/bin" && pwd`"/propel-gen"
+export PHP_CLASSPATH=`cd ${PROJECT_DIR} && pwd`
+
+CURRENT_DIR=`pwd`
+cd $CONFIG_DIR
+if [ -n "$1" ] ; then
+    exec $PROPEL_GENERATOR $*
+else
+    exec $PROPEL_GENERATOR
+fi
