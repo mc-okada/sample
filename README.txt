@@ -24,3 +24,5 @@ http://silex-users-jp.phper.jp/
 ついでに依存関係も解消してくれるらしい。。
 
 ライブラリを記述してみます。
+
+-- readme end --
